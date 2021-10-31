@@ -10,7 +10,7 @@ const Operator = () => {
   const dispatch = useDispatch();
   const Result = useSelector((state) => state.Opp);
   // eslint-disable-next-line
-  let Res = useSelector((state) => state.Re);
+  const Res = useSelector((state) => state.Re);
   const Nu1 = useSelector((state) => state.N1);
   const Nu2 = useSelector((state) => state.N2);
 
