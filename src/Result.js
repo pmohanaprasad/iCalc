@@ -7,12 +7,12 @@ import { res } from "./Redux/Action";
 
 const Resultt = () => {
   const dispatch = useDispatch();
-  let Result = useSelector((state) => state.Re);
+  const Result = useSelector((state) => state.Re);
 
   useEffect(() => {
     if (isNaN(Result)) dispatch(res("MATH ERROR"));
     // eslint-disable-next-line
-  }, [res]);
+  }, [Result]);
 
   return (
     <div>
