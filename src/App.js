@@ -39,8 +39,8 @@ const App = () => {
         <Input
           Text={Text}
           Result={Result}
-          handleonchange={(e) => {
-            dispatch(num1(e.target.value));
+          handleonchange={(k) => {
+            dispatch(num1(k.target.value));
           }}
         />
         <div className="Row">
