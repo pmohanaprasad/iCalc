@@ -30,7 +30,6 @@ const Operator = () => {
   const valid = () => {
     dispatch(op(Result));
 
-    dispatch(res((Res = " ")));
     if (Result === "+") dispatch(res(parseFloat(Nu1) + parseFloat(Nu2)));
     else if (Result === "-") dispatch(res(Nu1 - Nu2));
     else if (Result === "*") dispatch(res(Nu1 * Nu2));
