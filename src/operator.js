@@ -70,7 +70,7 @@ const Operator = () => {
               to="/Result"
               style={{ textDecoration: "none", color: "white" }}
             >
-              Result.
+              Result
             </Link>
           </div>
         </div>
