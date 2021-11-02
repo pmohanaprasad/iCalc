@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./App.css";
-import Button from "./Button";
-import Input from "./Input";
+import "./CSS/App.css";
+import Button from "./Components/Button";
+import Input from "./Components/Input";
 import { useSelector, useDispatch } from "react-redux";
 import { num2 } from "./Redux/Action";
 import { Link } from "react-router-dom";

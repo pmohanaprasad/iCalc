@@ -1,4 +1,4 @@
-import "./Input.css";
+import "D:/Monish/Code/iCalc/src/CSS/Input.css";
 
 const Input = ({ Text, Result, handleonchange }) => {
   return (
