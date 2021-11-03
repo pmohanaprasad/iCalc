@@ -1,18 +1,9 @@
 import { useSelector } from "react-redux";
 import "./CSS/Result.css";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { res } from "./Redux/Action";
 
 const Resultt = () => {
-  const dispatch = useDispatch();
   const Result = useSelector((state) => state.Re);
-
-  useEffect(() => {
-    if (isNaN(Result)) dispatch(res("MATH ERROR"));
-    // eslint-disable-next-line
-  }, [Result]);
 
   return (
     <div>
