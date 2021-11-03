@@ -4,12 +4,16 @@ import App from "./App";
 import Resultt from "./Result";
 import Number from "./Number";
 import Operator from "./Operator";
+import Invalid from "./Invalid";
 
 function Main() {
   return (
     <div className="Main">
       <Router>
         <Switch>
+          <Route path="/Invalid">
+            <Invalid />
+          </Route>
           <Route path="/Result">
             <Resultt />
           </Route>

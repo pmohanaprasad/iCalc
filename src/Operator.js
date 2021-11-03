@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Button from "./Components/Button";
 import Input from "./Components/Input";
 import { useSelector, useDispatch } from "react-redux";
-import { op, res } from "./Redux/Action";
+import { num1, num2, op, res } from "./Redux/Action";
 
 const Operator = () => {
   const [Text, setText] = useState("");
+  const Red = useHistory();
   const dispatch = useDispatch();
   const Result = useSelector((state) => state.Opp);
   // eslint-disable-next-line
@@ -29,14 +30,21 @@ const Operator = () => {
 
   const valid = () => {
     dispatch(op(Result));
+    if (isNaN(Result)) {
+      Red.push("/Invalid");
+      dispatch(op(""));
+      dispatch(num1(""));
+      dispatch(num2(""));
+      setText("");
+    } else {
+      if (Result === "+") dispatch(res(parseFloat(Nu1) + parseFloat(Nu2)));
+      else if (Result === "-") dispatch(res(Nu1 - Nu2));
+      else if (Result === "*") dispatch(res(Nu1 * Nu2));
+      else if (Result === "/") dispatch(res(Nu1 / Nu2));
+      else dispatch(res("MATH ERROR"));
 
-    if (Result === "+") dispatch(res(parseFloat(Nu1) + parseFloat(Nu2)));
-    else if (Result === "-") dispatch(res(Nu1 - Nu2));
-    else if (Result === "*") dispatch(res(Nu1 * Nu2));
-    else if (Result === "/") dispatch(res(Nu1 / Nu2));
-    else dispatch(res("MATH ERROR"));
-
-    setText((Text) => "Operator = " + Text + Result);
+      setText((Text) => "Operator = " + Text + Result);
+    }
   };
 
   return (

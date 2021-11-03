@@ -3,12 +3,12 @@ import "./CSS/App.css";
 import Button from "./Components/Button";
 import Input from "./Components/Input";
 import { useSelector, useDispatch } from "react-redux";
-import { num1 } from "./Redux/Action";
-import { Link } from "react-router-dom";
+import { num1, num2, op } from "./Redux/Action";
+import { Link, useHistory } from "react-router-dom";
 
 const App = () => {
   const [Text, setText] = useState("");
-
+  const Red = useHistory();
   const dispatch = useDispatch();
   const Result = useSelector((state) => state.N1);
 
@@ -27,7 +27,13 @@ const App = () => {
 
   const Store = () => {
     dispatch(num1(Result));
-    setText((Text) => "Operand 1 = " + Text + Result);
+    if (isNaN(Result)) {
+      Red.push("/Invalid");
+      dispatch(num1(""));
+      dispatch(num2(""));
+      dispatch(op(""));
+      setText("");
+    } else setText((Text) => "Operand 1 = " + Text + Result);
   };
 
   return (
