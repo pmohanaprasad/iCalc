@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Button from "./Components/Button";
 import Input from "./Components/Input";
 import { useSelector, useDispatch } from "react-redux";
-import { op, res } from "./Redux/Action";
+import { op, res, num1, num2 } from "./Redux/Action";
 
 const Operator = () => {
   const [Text, setText] = useState("");
   const dispatch = useDispatch();
+  const Red = useHistory();
   const Result = useSelector((state) => state.Opp);
   // eslint-disable-next-line
   const Res = useSelector((state) => state.Re);
@@ -34,7 +35,13 @@ const Operator = () => {
     else if (Result === "-") dispatch(res(Nu1 - Nu2));
     else if (Result === "*") dispatch(res(Nu1 * Nu2));
     else if (Result === "/") dispatch(res(Nu1 / Nu2));
-    else dispatch(res("MATH ERROR"));
+    else {
+      Red.push("/Invalid");
+      dispatch(num2(""));
+      dispatch(num1(""));
+      dispatch(op(""));
+      setText("");
+    }
 
     setText((Text) => "Operator = " + Text + Result);
   };

@@ -11,7 +11,11 @@ const Invalid = () => {
     }, 3000);
   });
 
-  return <div className="st">Invalid Input (Enter Numbers)</div>;
+  return (
+    <div className="st">
+      Invalid Input (Enter Numbers or Operator Accordingly)
+    </div>
+  );
 };
 
 export default Invalid;
