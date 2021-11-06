@@ -10,8 +10,6 @@ const Operator = () => {
   const dispatch = useDispatch();
   const Red = useHistory();
   const Result = useSelector((state) => state.Opp);
-  // eslint-disable-next-line
-  const Res = useSelector((state) => state.Re);
   const Nu1 = useSelector((state) => state.N1);
   const Nu2 = useSelector((state) => state.N2);
 
