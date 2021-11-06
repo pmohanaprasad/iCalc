@@ -11,7 +11,7 @@ const Number = () => {
   const Red = useHistory();
   const dispatch = useDispatch();
   const Result = useSelector((state) => state.N2);
-  
+
   const addToText = (nxt) => {
     dispatch(num2(Result + nxt));
   };
