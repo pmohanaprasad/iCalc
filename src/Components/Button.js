@@ -1,4 +1,4 @@
-import "D:/Monish/Code/iCalc/src/CSS/Button.css";
+import "../CSS/Button.css";
 
 const Button = ({ symbol, color, click, input }) => {
   return (
