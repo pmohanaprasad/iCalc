@@ -1,13 +1,13 @@
-import "./CSS/Result.css";
-import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import './CSS/Result.css';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Invalid = () => {
-  const red = useHistory();
+  const red = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
-      red.push("/App");
+      red.push('/App');
     }, 3000);
   });
 

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import "./CSS/App.css";
-import Button from "./Components/Button";
-import Input from "./Components/Input";
-import { useSelector, useDispatch } from "react-redux";
-import { num1, num2, op } from "./Redux/Action";
-import { Link, useHistory } from "react-router-dom";
+import { useState } from 'react';
+import './CSS/App.css';
+import Button from './Components/Button';
+import Input from './Components/Input';
+import { useSelector, useDispatch } from 'react-redux';
+import { num1, num2, op } from './Redux/Action';
+import { Link, useNavigate } from 'react-router-dom';
 
 const App = () => {
-  const [Text, setText] = useState("");
-  const Red = useHistory();
+  const [Text, setText] = useState('');
+  const Red = useNavigate();
   const dispatch = useDispatch();
   const Result = useSelector((state) => state.N1);
 
@@ -17,8 +17,8 @@ const App = () => {
   };
 
   const Clear = () => {
-    dispatch(num1(""));
-    setText("");
+    dispatch(num1(''));
+    setText('');
   };
 
   const Backspace = () => {
@@ -28,12 +28,12 @@ const App = () => {
   const Store = () => {
     dispatch(num1(Result));
     if (isNaN(Result)) {
-      Red.push("/Invalid");
-      dispatch(num1(""));
-      dispatch(num2(""));
-      dispatch(op(""));
-      setText("");
-    } else setText((Text) => "Operand 1 = " + Text + Result);
+      Red.push('/Invalid');
+      dispatch(num1(''));
+      dispatch(num2(''));
+      dispatch(op(''));
+      setText('');
+    } else setText((Text) => 'Operand 1 = ' + Text + Result);
   };
 
   return (
@@ -80,7 +80,7 @@ const App = () => {
           <div className="link">
             <Link
               to="/Number"
-              style={{ textDecoration: "none", color: "white" }}
+              style={{ textDecoration: 'none', color: 'white' }}
             >
               Number 2
             </Link>

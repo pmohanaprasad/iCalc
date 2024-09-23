@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import Button from "./Components/Button";
-import Input from "./Components/Input";
-import { useSelector, useDispatch } from "react-redux";
-import { op, res, num1, num2 } from "./Redux/Action";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from './Components/Button';
+import Input from './Components/Input';
+import { useSelector, useDispatch } from 'react-redux';
+import { op, res, num1, num2 } from './Redux/Action';
 
 const Operator = () => {
-  const [Text, setText] = useState("");
+  const [Text, setText] = useState('');
   const dispatch = useDispatch();
-  const Red = useHistory();
+  const Red = useNavigate();
   const Result = useSelector((state) => state.Opp);
   const Nu1 = useSelector((state) => state.N1);
   const Nu2 = useSelector((state) => state.N2);
@@ -18,8 +18,8 @@ const Operator = () => {
   };
 
   const Clear = () => {
-    dispatch(op(""));
-    setText("");
+    dispatch(op(''));
+    setText('');
   };
 
   const Backspace = () => {
@@ -29,19 +29,19 @@ const Operator = () => {
   const valid = () => {
     dispatch(op(Result));
 
-    if (Result === "+") dispatch(res(parseFloat(Nu1) + parseFloat(Nu2)));
-    else if (Result === "-") dispatch(res(Nu1 - Nu2));
-    else if (Result === "*") dispatch(res(Nu1 * Nu2));
-    else if (Result === "/") dispatch(res(Nu1 / Nu2));
+    if (Result === '+') dispatch(res(parseFloat(Nu1) + parseFloat(Nu2)));
+    else if (Result === '-') dispatch(res(Nu1 - Nu2));
+    else if (Result === '*') dispatch(res(Nu1 * Nu2));
+    else if (Result === '/') dispatch(res(Nu1 / Nu2));
     else {
-      Red.push("/Invalid");
-      dispatch(num2(""));
-      dispatch(num1(""));
-      dispatch(op(""));
-      setText("");
+      Red.push('/Invalid');
+      dispatch(num2(''));
+      dispatch(num1(''));
+      dispatch(op(''));
+      setText('');
     }
 
-    setText((Text) => "Operator = " + Text + Result);
+    setText((Text) => 'Operator = ' + Text + Result);
   };
 
   return (
@@ -73,7 +73,7 @@ const Operator = () => {
           <div className="link">
             <Link
               to="/Result"
-              style={{ textDecoration: "none", color: "white" }}
+              style={{ textDecoration: 'none', color: 'white' }}
             >
               Result
             </Link>
