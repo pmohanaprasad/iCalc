@@ -48,6 +48,8 @@ const App = () => {
         onSubmit();
       } else if (event.key === 'Backspace') {
         Backspace();
+      } else if (event.key === 'Delete') {
+        Clear();
       }
     };
 
