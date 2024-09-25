@@ -4,6 +4,8 @@ import './CSS/App.css';
 import Button from './Components/Button';
 import Input from './Components/Input';
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+
 const App = () => {
   const [Text, setText] = useState('');
   const [Result, setResult] = useState('');
@@ -62,7 +64,7 @@ const App = () => {
 
   return (
     <>
-      <div className="App">
+      {!isMobile ? <div className="App">
         <div className="bg">
           <span>Calculator</span>
         </div>
@@ -96,7 +98,9 @@ const App = () => {
             <Button col={3} symbol="=" click={onSubmit} color="#008000" />
           </Row>
         </div>
-      </div>
+      </div> : <div className="App text-white">
+        Only for Desktop, Please open in Desktop
+      </div>}
       <footer className="footer">
         <p>
           &copy; {new Date().getFullYear()} pmohanaprasad. All rights reserved.
