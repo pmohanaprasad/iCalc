@@ -103,7 +103,7 @@ const App = () => {
       </div>}
       <footer className="footer">
         <p>
-          &copy; {new Date().getFullYear()} pmohanaprasad. All rights reserved.
+          &copy; pmohanaprasad.tech
         </p>
       </footer>
     </>
